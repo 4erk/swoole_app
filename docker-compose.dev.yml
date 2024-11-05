@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    environment:
+      AUTORELOAD_PROGRAMS: "swoole"
+      AUTORELOAD_ANY_FILES: 0
+      PHP_IDE_CONFIG: "serverName=swoole"
+      XDEBUG_SESSION: "PHPSTORM"
+    volumes:
+      - ./:/var/www
+    ports:
+      - "80:9501"

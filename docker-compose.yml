@@ -2,6 +2,9 @@ version: '3.8'
 
 services:
   app:
-    image: phpswoole/swoole:6.0-php8.3
+    build:
+      context: .
+    volumes:
+      - ./:/var/www
     ports:
       - "80:9501"
