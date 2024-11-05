@@ -9,10 +9,11 @@ ENV DEBUG=${DEBUG}
 
 COPY ./docker/ /
 
-RUN \
-    set -ex && \
+RUN set -ex && \
     pecl channel-update pecl.php.net && \
-    pecl install xdebug-stable
+    if [ "$ENV" = "dev" ]; then \
+        pecl install xdebug-stable; \
+    fi
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD []

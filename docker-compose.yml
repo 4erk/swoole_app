@@ -4,6 +4,10 @@ services:
   app:
     build:
       context: .
+      args:
+        ENV: "prod"
+        DEBUG: false
+    image: 4erk/swoole-app:latest
     volumes:
       - ./:/var/www
     ports:

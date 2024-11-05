@@ -4,6 +4,10 @@ services:
   app:
     build:
       context: .
+      args:
+        ENV: "dev"
+        DEBUG: true
+    image: 4erk/swoole-app:dev
     environment:
       AUTORELOAD_PROGRAMS: "swoole"
       AUTORELOAD_ANY_FILES: 0
