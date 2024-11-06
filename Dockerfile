@@ -1,17 +1,15 @@
 FROM phpswoole/swoole:6.0-php8.3
 LABEL authors="4erk"
 
-ARG ENV=prod
-ARG DEBUG=false
+ARG ENV=PRODUCTION
 
 ENV ENV=${ENV}
-ENV DEBUG=${DEBUG}
 
 COPY ./docker/ /
 
 RUN set -ex && \
     pecl channel-update pecl.php.net && \
-    if [ "$ENV" = "dev" ]; then \
+    if [ "$ENV" = "DEVELOP" ]; then \
         pecl install xdebug-stable; \
     fi
 

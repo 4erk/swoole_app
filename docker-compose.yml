@@ -5,8 +5,9 @@ services:
     build:
       context: .
       args:
-        ENV: "prod"
-        DEBUG: false
+        ENV: "PRODUCTION"
+        BOOT: "SERVICE"
+        SWOOLE_TIMEZONE: "UTC"
     image: 4erk/swoole-app:latest
     volumes:
       - ./:/var/www

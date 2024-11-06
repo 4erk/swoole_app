@@ -5,10 +5,13 @@ services:
     build:
       context: .
       args:
-        ENV: "dev"
+        ENV: "DEVELOP"
         DEBUG: true
     image: 4erk/swoole-app:dev
     environment:
+      ENV: "DEVELOP"
+      BOOT: "SERVICE"
+      SWOOLE_TIMEZONE: "UTC"
       AUTORELOAD_PROGRAMS: "swoole"
       AUTORELOAD_ANY_FILES: 0
       PHP_IDE_CONFIG: "serverName=swoole"
